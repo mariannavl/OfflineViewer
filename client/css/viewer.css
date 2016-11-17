@@ -3,8 +3,39 @@
     color: inherit;
 }
 
-#models-list a:hover {
+#models-list a, #models-list span {
+    display: inline-block;
+}
+
+a.open-model {
+    width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    overflow: hidden;
+}
+
+#models-list a.open-model:hover {
     text-decoration: underline;
+}
+
+#models-list a.log-file {
+    background: #65bb9c;
+    margin: 0 6px;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 22px;
+    position: relative;
+    top:2px;
+}
+
+.muted {
+    color: #999;
+    font-size: 12px;
 }
 
 .hidden {
@@ -222,21 +253,23 @@ h6 {
     overflow: auto;
 }
 
-/* Icons Style */
 .list-item {
     padding: 3px 5px;
     transition: .3s all;
     border-radius: 3px;
     border-bottom: 2px solid #f7f7f7;
 }
+
 .list-item:hover {
     border-bottom-color: #ddd;
     background: #fefefe;
 }
+
 .remove {
     cursor: pointer;
     float:right;
 }
+
 .remove .icon-cross {
     color: #fff;
     background: #008CBA;
@@ -250,11 +283,17 @@ h6 {
     line-height: 12px;
     transition: .3s all;
 }
+
 .remove .icon-cross:hover {
     background: #e74c3c;
 }
+
 .id-container {
     font-size: 11px;
     font-weight: 600;
     color: #007095;
+}
+
+.last-row .button {
+    margin-bottom: 0;
 }

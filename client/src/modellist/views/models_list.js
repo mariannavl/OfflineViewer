@@ -37,7 +37,7 @@ Viewer.module("ModelsMenu", function (ModelsMenu, Viewer, Backbone, Marionette, 
     childView: ModelsMenu.ModelView,
     childViewContainer: "ul",
     events: {
-      "click a": "toggleModel",
+      "click a.open-model": "toggleModel",
       "click button.js-deleteall": "deleteModels"
     },
     collectionEvents: {

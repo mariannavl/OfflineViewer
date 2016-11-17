@@ -25,7 +25,11 @@
 </script>
 
 <script type="template/x-template" id="model-li-template">
-    <a href="#" value="<%- name %>"> <%- name %> </a> <span title="Delete model" class="round right js-delete remove"><i class="icon-cross"></i></span>
+    <a href="#" value="<%- name %>" class="open-model"><%- name %></a>
+
+    <span title="Delete model" class="round right js-delete remove"><i class="icon-cross"></i></span>
+    <a href="/models/<%- name %>/GeometryMapper.log" target="_blank" title="Open log file" class="right round log-file"><i class="icon-gift"></i></a>
+    <div class="clearfix"></div>
 </script>
 
 <script type="template/x-template" id="loaded-model-li-template">
@@ -300,127 +304,55 @@
 </script>-->
 <script id="color-settings" type="text/template">
     <a href="#color-settings-panel">Color settings</a>
-    <div id="color-settings-panel" class="content">
-        <table id="part-id-table">
-            <thead>
-            <tr>
-                <th>Part Id</th>
-            </tr>
-            </thead>
-            <tbody id="partId-table">
-            <tr>
-                <td id="partID"><%= partId %></td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="row">
-            <div class="small-3 columns">
-                <label class="input-label">R:</label>
-                <input class="input-control colors" id="red" type="number" step="1" min="0" max="255">
-            </div>
-            <div class="small-3 columns">
-                <label class="input-label">G:</label>
-                <input class="input-control colors" type="number" step="1" id="green" min="0" max="255">
-            </div>
-            <div class="small-3 columns">
-                <label class="input-label">B:</label>
-                <input class="input-control colors" type="number" step="1" id="blue" min="0" max="255">
-            </div>
-            <div class="small-3 columns">
-                <a href="#" id="set-color" class="set button tiny info">Set colors</a>
-            </div>
+    <div class="content" id="color-settings-panel">
+        <div id="instruction-message">
+            Изберете само един part с геометрия.
         </div>
-
-        <div class="row">
-            <div class="small-3 columns">
-                <a href="#" id="get-diffuse-color" class="set button tiny info">Get diffuse</a>
-            </div>
-            <div class="small-3 columns">
-                <ul>
-                    <li id="dif-r">r:</li>
-                    <li id="dif-g">g:</li>
-                    <li id="dif-b">b:</li>
-                </ul>
-            </div>
-            <div class="small-4 columns">
-                <label class="input-label">R:</label>
-                <input class="input-control colors" id="dif-red" type="number" step="1" min="0" max="255">
-                <label class="input-label">G:</label>
-                <input class="input-control colors" id="dif-green" type="number" step="1" min="0" max="255">
-                <label class="input-label">B:</label>
-                <input class="input-control colors" id="dif-blue" type="number" step="1" min="0" max="255">
-            </div>
-            <div class="small-2 columns">
-                <a href="#" id="set-diffuse-color" class="set button tiny info">Set diffuse</a>
-            </div>
+        <div id="color-form" style="display: none">
+            <!-- #color-form-tpl -->
         </div>
-        <div class="row">
-            <div class="small-3 columns">
-                <a href="#" id="get-emissive-color" class="set button tiny info">Get emissive</a>
-            </div>
-            <div class="small-3 columns">
-                <ul>
-                    <li id="emis-r">r:</li>
-                    <li id="emis-g">g:</li>
-                    <li id="emis-b">b:</li>
-                </ul>
-            </div>
-            <div class="small-4 columns">
-                <label class="input-label">R:</label>
-                <input class="input-control colors emis" id="emis-red" type="number" step="1" min="0" max="255">
-                <label class="input-label">G:</label>
-                <input class="input-control colors emis" id="emis-green" type="number" step="1" min="0" max="255">
-                <label class="input-label">B:</label>
-                <input class="input-control colors emis" id="emis-blue" type="number" step="1" min="0" max="255">
-            </div>
-            <div class="small-2 columns">
-                <a href="#" id="set-emissive-color" class="set button tiny info">Set emissive</a>
-            </div>
+    </div>
+</script>
+<script id="color-form-tpl" type="text/template">
+    <div class="row">
+        <div class="small-3 columns">
+            Diffuse
         </div>
-        <div class="row">
-            <div class="small-3 columns">
-                <a href="#" id="get-specular-color" class="set button tiny info">Get specular</a>
-            </div>
-            <div class="small-3 columns">
-                <ul>
-                    <li id="spec-r">r:</li>
-                    <li id="spec-g">g:</li>
-                    <li id="spec-b">b:</li>
-                </ul>
-            </div>
-            <div class="small-4 columns">
-                <label class="input-label">R:</label>
-                <input class="input-control colors spec" id="spec-red" type="number" step="1" min="0" max="255">
-                <label class="input-label">G:</label>
-                <input class="input-control colors spec" id="spec-green" type="number" step="1" min="0" max="255">
-                <label class="input-label">B:</label>
-                <input class="input-control colors spec" id="spec-blue" type="number" step="1" min="0" max="255">
-            </div>
-            <div class="small-2 columns">
-                <a href="#" id="set-specular-color" class="set button tiny info">Set specular</a>
-            </div>
+        <div class="small-9 columns">
+            <input type="text" id="diffuse-control" value="<%- diffuse %>">
         </div>
-        <div class="row">
-            <div class="small-3 columns">
-                <a href="#" id="get-transparency" class="set button tiny info">Get transparency</a>
-            </div>
-            <div class="small-3 columns">
-                <ul>
-                    <li id="transparency">transp:</li>
-                </ul>
-            </div>
-            <div class="small-4 columns">
-                <label class="input-label">Tr:</label>
-                <input type="number" class="input-control colors trans" step="0.01" min="0" max="1">
-            </div>
-            <div class="small-2 columns">
-                <a href="#" id="set-transparency" class="set button tiny info">Set transparency</a>
-            </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <!--<a href="#" id="get-emissive-color" class="set button tiny info">Get emissive</a>-->
+            Emissive
         </div>
-        <div class="row">
-            <div class="small-3 columns">
-                <a href="#" id="reset-color" class="set button tiny info">Reset Color</a>
-            </div>
+        <div class="small-9 columns">
+            <input type="text" id="emissive-control" value="<%- emissive %>">
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <!--<a href="#" id="get-emissive-color" class="set button tiny info">Get emissive</a>-->
+            Specular
+        </div>
+        <div class="small-9 columns">
+            <input type="text" id="specular-control" value="<%- specular %>">
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-7 columns">
+            <!--<a href="#" id="get-emissive-color" class="set button tiny info">Get emissive</a>-->
+            Transparent
+        </div>
+        <div class="small-5 columns">
+            <input type="text" id="transparency-control" class="input-control" value="<%- transparency %>">
+        </div>
+    </div>
+    <div class="row last-row">
+        <div class="columns">
+            <a href="#" id="apply-color" class="button tiny">Apply</a>
+            <a href="#" id="reset-color" class="button tiny">Reset</a>
         </div>
     </div>
 </script>

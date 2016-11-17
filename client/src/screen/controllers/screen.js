@@ -122,12 +122,21 @@ Viewer.module("Screen.Controllers", function(Controllers, Viewer, Backbone, Mari
 
                 Viewer.viewer.show(screenView);
             }
+        },
+        getPartColor: function(partModel) {
+            var sceneView = Viewer.viewer.currentView;
+            var partIDList = partModel.id.split('@');
+            if(sceneView) {
+                return sceneView.getPartColor(partIDList[0], partIDList[1]);
+            }
         }
     });
 
     Controllers.addInitializer(function() {
 
         var controller = new Controllers.Controller();
+
+        Controllers.instance = controller;
 
         Viewer.on('load:transform', controller.displayScreen.bind(controller));
         Viewer.on('load:model', function (documentName) {

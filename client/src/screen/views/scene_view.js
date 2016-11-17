@@ -316,6 +316,14 @@ Viewer.module("Screen.Views", function (Views, Viewer, Backbone, Marionette, $, 
 
         fitAll: function () {
             this.x3dElement.runtime.fitAll();
+        },
+
+        getPartColor: function(partID, modelId) {
+            var model = this.collection.get(modelId);
+            var multipartView = this.children.findByModel(model);
+            if(multipartView) {
+                return multipartView.getPartsColor(partID);
+            }
         }
     });
 

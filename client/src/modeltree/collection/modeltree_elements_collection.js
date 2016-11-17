@@ -30,7 +30,6 @@ Viewer.module('ModelTree', function(ModelTree, Viewer, Backbone, Mn, $, _) {
             var partialModel = this.partialModel;
             return _.map(elements, function(element) {
                 var hasGeometry = typeof element.Geometry == 'undefined'  ? true : // default value if undefined
-                                  element.Geometry === 'true'             ? true : // 'true' === true
                                                                             element.Geometry; // actual property value
                 return {
                     id: element.Id + '@' + partialModel,
@@ -77,11 +76,3 @@ Viewer.module('ModelTree', function(ModelTree, Viewer, Backbone, Mn, $, _) {
 
     ModelTree.modeltreeElementsCollection = new ModelTreeElementsCollection();
 });
-
-function replaceSlash() {
-
-}
-
-function escaleVals() {
-
-}

@@ -523,7 +523,18 @@ Viewer.module("Screen.Views", function (Views, Viewer, Backbone, Marionette, $, 
             return material;
 
         },
+        getPartsColor: function(partID) {
+            var matcher = this.getMatcherRegExp([partID]);
+            var parts = this.multipart.getParts(matcher);
 
+            return {
+                parts: parts,
+                diffuse: parts.getDiffuseColor().toGL().join(','),
+                specular: parts.getSpecularColor().toGL().join(','),
+                emissive: parts.getEmissiveColor().toGL().join(','),
+                transparancy: parts.getTransparency()
+            };
+        },
         resetColor: function () {
             var parts = this.multipart.getParts();
             var wireframe = this.wireframe.getParts();
