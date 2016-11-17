@@ -1,0 +1,107 @@
+[
+	{
+		"ifcType": "IfcCovering",
+		"defaultColor": "#D4CCB2",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcObject",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcWall",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcDoor",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFurniture",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcPile",
+		"defaultColor": "#A0A4A7",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcFooting",
+		"defaultColor": "#A0A4A7",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcBeam",
+		"defaultColor": "#587594",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcColumn",
+		"defaultColor": "#587594",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcSlab",
+		"defaultColor": "#4E5459",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcRamp",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcRoof",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcRampflight",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcPlate",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcWindow",
+		"defaultColor": "#6094AF",
+		"transparency": 0.7
+	},
+	{
+		"ifcType": "IfcCurtainWall",
+		"defaultColor": "#6094AF",
+		"transparency": 0.7
+	},
+	{
+		"ifcType": "IfcStair",
+		"defaultColor": "#6094AF",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcStairFlight",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcMember",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcRailing",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "Others",
+		"defaultColor": "#D4CCB2",
+		"transparency" : 0
+	}
+]

@@ -1,0 +1,10 @@
+{
+  "name": "viewer",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "json2": "*",
+    "marionette": "~2.2.1",
+    "foundation": "~5.4.4"
+  }
+}

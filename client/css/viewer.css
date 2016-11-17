@@ -1,0 +1,260 @@
+.custom-file-input {
+    overflow: hidden;
+    color: inherit;
+}
+
+#models-list a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}
+
+x3d {
+    border:0 none;
+}
+
+#viewer x3d {
+    width: 100%;
+    height: 700px;
+}
+
+#cube {
+    position: absolute;
+    bottom: 0;
+    top: 100%;
+    width: 200px;
+    height: 200px;
+}
+
+.row {
+    min-width: 100% !important;
+    padding: 0 15px;
+}
+
+.highlight {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+#models-menu {
+    overflow: hidden;
+}
+
+#models-menu li {
+    font-size: 14px !important;
+}
+
+#show-models-menu {
+    margin-bottom: 5px;
+}
+
+.accordion-navigation > a {
+    background: #008CBA !important;
+    border: 1px solid #007095;
+    color: #f7f7f7 !important;
+    font-size: 15px !important;
+    height: 30px !important;
+    padding: 5px 10px !important;
+}
+
+.accordion-navigation > .content {
+    background: #f7f7f7 !important;
+    border: 1px solid #898989;
+}
+
+span.round.label {
+    height: 18px !important;
+    padding: 4px 5px 4px 5px;
+    line-height: 10px;
+    margin-top: 2.5px;
+}
+
+.js-buttons-row {
+    padding: 0 30px;
+}
+
+.no-margin {
+    margin: 0px;
+    padding: 0px;
+}
+
+.rectangle {
+    border: 1px solid #000000;
+    position: absolute;
+}
+
+.oneline {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+input.colors {
+    padding: 0px;
+    height: 22px;
+    margin: 0px;
+}
+
+input.light-settings {
+    padding: 0;
+    height: 22px;
+    margin: 0;
+}
+
+label {
+    float: left;
+}
+
+h6 {
+    margin: 0;
+}
+
+.set.button{
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+}
+
+#part-id-table {
+    margin-bottom: 3px;
+}
+
+#set-color {
+    top: 17px;
+}
+
+
+.input-label {
+    float:left;
+    width:25px;
+}
+
+.input-control {
+    float:left !important;
+    width: 80px !important;
+}
+
+#set-type-color {
+    top: 16px;
+}
+
+.type-table-node {
+    padding: 0;
+}
+
+/* ModelTree styling */
+.item-controls, .item-controls ul {
+    line-height: 1.1;
+}
+
+.element-name {
+    font-size: 11px;
+    cursor: pointer;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.element-name.strong {
+    font-style: normal;
+    font-weight: 600;
+    color: #008CBA;
+}
+.element-controls {
+    white-space: nowrap;
+}
+.element-controls span{
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+}
+.element-controls span[role=hide-element] {
+    margin-right: 10px;
+}
+.element-controls span:hover {
+    color: #2b81af;
+}
+.element-controls .icon {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/*Dropdown styling*/
+.dropbtn {
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 0;
+    top: 33px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 6px 8px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.scroll-container {
+    height: 700px;
+    overflow: auto;
+}
+
+/* Icons Style */
+.list-item {
+    padding: 3px 5px;
+    transition: .3s all;
+    border-radius: 3px;
+    border-bottom: 2px solid #f7f7f7;
+}
+.list-item:hover {
+    border-bottom-color: #ddd;
+    background: #fefefe;
+}
+.remove {
+    cursor: pointer;
+    float:right;
+}
+.remove .icon-cross {
+    color: #fff;
+    background: #008CBA;
+    border-radius: 15px;
+    padding: 4px;
+    font-size: 8px;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    display: inline-block;
+    line-height: 12px;
+    transition: .3s all;
+}
+.remove .icon-cross:hover {
+    background: #e74c3c;
+}
+.id-container {
+    font-size: 11px;
+    font-weight: 600;
+    color: #007095;
+}

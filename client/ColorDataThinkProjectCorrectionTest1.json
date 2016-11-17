@@ -1,0 +1,457 @@
+[
+	{
+		"ifcType": "IfcAnnotation",
+		"defaultColor": "#4E5459",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcBeam",
+		"defaultColor": "#587594",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcBuilding",
+		"defaultColor": "#A0A4A7",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcBuildingElementComponent",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcBuildingElementPart",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcBuildingElementProxy",
+		"defaultColor": "#CFCFD1",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcBuildingStorey",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcChamferEdgeFeature",
+		"defaultColor": "#CFCFD1",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcColumn",
+		"defaultColor": "#587594",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcCovering",
+		"defaultColor": "#D4CCB2",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcCurtainWall",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcDiscreteAccessory",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcDistributionChamberElement",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcDistributionControlElement",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcDistributionElement",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcDistributionFlowElement",
+		"defaultColor": "#587594",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcDistributionPort",
+		"defaultColor": "#AFCD6B",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcDoor",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcEdgeFeature",
+		"defaultColor": "#CFCFD1",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcElectricalElement",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcElectricDistributionPoint",
+		"defaultColor": "#587594",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcElement",
+		"defaultColor": "#D4CCB2",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcElementAssembly",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcElementComponent",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcEnergyConversionDevice",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcEquipmentElement",
+		"defaultColor": "#AFCD6B",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFastener",
+		"defaultColor": "#4E5459",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcFeatureElement",
+		"defaultColor": "#A0A4A7",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFeatureElementAddition",
+		"defaultColor": "#A0A4A7",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcFeatureElementSubtraction",
+		"defaultColor": "#A0A4A7",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFlowController",
+		"defaultColor": "#E6B012",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcFlowFitting",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFlowMovingDevice",
+		"defaultColor": "#AFCD6B",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFlowSegment",
+		"defaultColor": "#587594",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFlowStorageDevice",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFlowTerminal",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFlowTreatmentDevice",
+		"defaultColor": "#AFCD6B",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcFooting",
+		"defaultColor": "#A0A4A7",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcFurnishingElement",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcGrid",
+		"defaultColor": "#A0A4A7",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcMechanicalFastener",
+		"defaultColor": "#AFCD6B",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcMember",
+		"defaultColor": "#6094AF",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcObject",
+		"defaultColor": "#D4CCB2",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcObjectDefinition",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcOpeningElement",
+		"defaultColor": "#AFCD6B",
+		"transparency": 0.7
+	},
+	{
+		"ifcType": "IfcPile",
+		"defaultColor": "#A0A4A7",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcPlate",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcPort",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcProduct",
+		"defaultColor": "#D4CCB2",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcProject",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcProjectionElement",
+		"defaultColor": "#6094AF",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcProxy",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcRailing",
+		"defaultColor": "#6094AF",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcRamp",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcRampFlight",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcReinforcingBar",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcReinforcingElement",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcReinforcingMesh",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcRoof",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcRoundedEdgeFeature",
+		"defaultColor": "#A0A4A7",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcSite",
+		"defaultColor": "#AFCD6B",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcSlab",
+		"defaultColor": "#4E5459",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcSpace",
+		"defaultColor": "#AFCD6B",
+		"transparency": 0.7
+	},
+	{
+		"ifcType": "IfcStair",
+		"defaultColor": "#6094AF",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcStairFlight",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralAction",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralActivity",
+		"defaultColor": "#E6B012",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcStructuralConnection",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralCurveConnection",
+		"defaultColor": "#1E2D56",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcStructuralCurveMember",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralCurveMemberVarying",
+		"defaultColor": "#587594",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcStructuralItem",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralLinearAction",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralLinearActionVarying",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralMember",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralPlanarAction",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralPlanarActionVarying",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralPointAction",
+		"defaultColor": "#E6B012",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcStructuralPointConnection",
+		"defaultColor": "#1E2D56",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralPointReaction",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralReaction",
+		"defaultColor": "#E6B012",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcStructuralSurfaceConnection",
+		"defaultColor": "#1E2D56",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcStructuralSurfaceMember",
+		"defaultColor": "#1E2D56",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcStructuralSurfaceMemberVarying",
+		"defaultColor": "#587594",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcTendon",
+		"defaultColor": "#AFCD6B",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcTendonAnchor",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcTransportElement",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcVirtualElement",
+		"defaultColor": "#6094AF",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcWall",
+		"defaultColor": "#D4CCB2",
+		"transparency": 0
+	},
+	{
+		"ifcType": "IfcWallStandardCase",
+		"defaultColor": "#D4CCB2",
+		"transparency" : 0
+	},
+	{
+		"ifcType": "IfcWindow",
+		"defaultColor": "#6094AF",
+		"transparency": 0.7
+	}
+]

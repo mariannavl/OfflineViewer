@@ -1,0 +1,46 @@
+<X3D>
+	<scene>
+		<group>
+
+			<!-- X arrow and label -->
+            <Shape isPickable="false" DEF="AXIS_LINE_X">
+                <IndexedLineSet index="0 1 -1">
+                    <Coordinate point="0 0 0.001, 1.6 0 0.001" color="1 0 0, 1 0 0"></Coordinate>
+                </IndexedLineSet>
+
+                <Appearance DEF='Red'>
+                    <Material diffuseColor="0 0 0" emissiveColor='1 0 0'></Material>
+                    <LineProperties linewidthScaleFactor="2.0"></LineProperties>
+                </Appearance>
+            </Shape>
+
+
+			
+			<!-- Y arrow and label -->                            
+            <Shape isPickable="false" DEF="AXIS_LINE_Y">
+            	<IndexedLineSet index="0 1 -1">
+            	    <Coordinate point="0 0 0.001, 0 1.6 0.001" color="0 1 0, 0 1 0"></Coordinate>
+            	</IndexedLineSet>
+
+            	<Appearance DEF='Green'>
+                    <Material diffuseColor="0 0 0" emissiveColor='0 1 0'></Material>
+                    <LineProperties linewidthScaleFactor="2.0"></LineProperties>
+                </Appearance>
+			</Shape>
+
+
+			<!-- Z arrow and label -->
+            <Shape isPickable="false" DEF="AXIS_LINE_Z">
+                <IndexedLineSet index="0 1 -1" >
+                    <Coordinate point="0 0 0.001, 0 0 1.6" color="0 0 1, 0 0 1"></Coordinate>
+                </IndexedLineSet>
+
+                <Appearance DEF='Blue'>
+                    <Material diffuseColor="0 0 0" emissiveColor='0 0 1'></Material>
+                    <LineProperties linewidthScaleFactor="2.0"></LineProperties>
+                </Appearance>
+            </Shape>
+
+		</group>
+	</scene>
+</X3D>

@@ -1,0 +1,506 @@
+
+<script type="text/x-template" id="models-composite-template">
+    <h6 class="subheader">Uploaded Models</h6>
+    <ul class="circle"></ul>
+    <button class="button tiny js-deleteall">Delete all</button>
+</script>
+
+<script type="text/template" id="navi-cube-template">
+    <scene>
+        <viewpoint isActive="true" bind="true" id="cube-vp"></viewpoint>
+        <background transparency="1"></background>
+        <inline url="/x3d/cubesides.x3d" namespacename="cubes"></inline>
+        <inline	url="/x3d/axis.x3d" namespacename="axis"></inline>
+    </scene>
+</script>
+
+<!--<script type="text/javascript">-->
+<!--$("#viewer").tooltip();-->
+<!--</script>-->
+
+<script type="text/x-template" id="models-upload-template">
+    <h6 class="subheader">Upload Model</h6>
+    <input type="file" class="custom-file-input" multiple />
+    <p hidden id="upload-progress">Progress: <span>No file selected.</span></p>
+</script>
+
+<script type="template/x-template" id="model-li-template">
+    <a href="#" value="<%- name %>"> <%- name %> </a> <span title="Delete model" class="round right js-delete remove"><i class="icon-cross"></i></span>
+</script>
+
+<script type="template/x-template" id="loaded-model-li-template">
+    <a href="#" value="<%- name %>"> <%- name %> </a>
+</script>
+
+<script id="navigation-menu-template" type="text/x-template">
+    <a href="#navigation-panel">Navigation type</a>
+    <div id="navigation-panel" class="content active">
+        <ul class="no-bullet">
+            <li><a class="nav-type highlight" href="#" data-type="examine">Examine</a></li>
+            <li><a class="nav-type" href="#" data-type="rotate">Rotate</a></li>
+            <li><a class="nav-type" href="#" data-type="walk">Walk</a></li>
+            <li><a class="nav-type" href="#" data-type="fly">Fly</a></li>
+            <li><a class="nav-type" href="#" data-type="lookAt">Look at</a></li>
+            <li><a class="nav-type" href="#" data-type="turntable">Turntable</a></li>
+            <li><a class="nav-type" href="#" data-type="game">Game</a></li>
+            <li><a class="nav-type" href="#" data-type="helicopter">Helicopter</a></li>
+            <li><a class="nav-type" href="#" data-type="custom">Custom</a></li>
+        </ul>
+    </div>
+</script>
+
+<script id="navigation-options-template" type="text/template">
+    <a href="#navigation-opt-panel">Navigation options</a>
+    <div id="navigation-opt-panel" class="content">
+        <form>
+            <div class="row">
+                <div class="small-12">
+                    <div class="row no-margin">
+                        <div class="small-6 columns">
+                            <label for="speed" class="right inline">Speed</label>
+                        </div>
+                        <div class="small-6 columns">
+                            <input type="number" id="speed" data-option="speed" data-min="0" step="0.5" placeholder="1.0" value="1.0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12">
+                    <div class="row no-margin">
+                        <div class="small-6 columns">
+                            <label for="transition-type" class="right inline">Transition type</label>
+                        </div>
+                        <div class="small-6 columns">
+                            <select id="transition-type" data-option="transitionType">
+                                <option value="linear">Linear</option>
+                                <option value="teleport">Teleport</option>
+                                <option value="animate">Animate</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12">
+                    <div class="row no-margin">
+                        <div class="small-6 columns">
+                            <label for="transition-time" class="right inline">Transition time</label>
+                        </div>
+                        <div class="small-6 columns">
+                            <input type="number" id="transition-time" data-option="transitionTime" data-min="0" step="0.5" placeholder="1.0" value="1.0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button class="button tiny js-reset">Reset all</button>
+            </div>
+        </form>
+    </div>
+</script>
+
+<script id="render-mode-template" type="text/template">
+    <a href="#render-mode-panel">Render Mode</a>
+    <div id="render-mode-panel" class="content active">
+        <ul class="no-bullet">
+            <li><a class="nav-type" href="#" data-type="shaded">Shaded</a></li>
+            <li><a class="nav-type" href="#" data-type="wireframe">Wireframe</a></li>
+            <li><a class="nav-type highlight" href="#" data-type="combined">Combined</a></li>
+        </ul>
+    </div>
+</script>
+
+<script id="multipart-template" type="text/template">
+    <transform scale="<%= scaleFactor %>" translation="<%= translation %>" rotation="1,0,0,-1.57">
+        <multipart id="<%= id %>" url="<%= urlmodel %>" urlIDMap="<%= urlIDMap %>"></multipart>
+        <!--<inline id="<%= id %>" url="<%= urlmodel %>"></inline>-->
+        <multipart id="<%= wireframeId %>" url="<%= wireframeUrlModel %>" urlIDMap="<%= wireframeUrlIDMap %>"></multipart>
+        <!--<inline id="<%= wireframeId %>" url="<%= wireframeUrlModel %>"></inline>-->
+    </transform>
+</script>
+<!---->
+<script id="scene-template" type="text/template">
+    <Scene id="scene">
+        <viewpoint></viewpoint>
+        <Environment id="gamma" gammaCorrectionDefault="fastLinear"></Environment>
+        <div id="rectangle-selection-container" class="large-12 columns" role="contentinfo"></div>
+        <navigationinfo headlight='false' id="navigationinfo" speed="7.0">  </navigationinfo>
+        <PointLight id='point' on='false' intensity='0.9000' color='0.0 0.6 0.0' location='0 10 0.5 ' radius='5.0000' >  </PointLight>
+        <SpotLight id='spot' on='false' beamWidth='0.9' color='0 0 1' cutOffAngle='0.78' location='0 0 12' radius='22' >  </SpotLight>
+        <directionallight id="directionallight" on="false" ambientintensity="0.2" intensity="0.2" color="1,1,1" shadowmapsize="2048" znear="-1" zfar="-1" direction="-1,-1,-1" shadowcascades="1" shadowsplitfactor="1" shadowsplitoffset="0.1"></directionallight>
+    </Scene>
+</script>
+
+<script id="tools-template" type="text/template">
+    <div class="dropdown">
+        <button class="button tiny dropbtn">Render Mode &raquo;</button>
+        <div class="dropdown-content">
+            <a href="#" cmd="hide-selected">Hide Selected</a>
+            <a href="#" cmd="show-selected">Show Selected</a>
+            <a href="#" cmd="show-all">Show All</a>
+            <a href="#" cmd="hide-all">Hide All</a>
+            <a href="#" cmd="switch-colors">Switch colors</a>
+            <a href="#" cmd="switch-light">Turn light on/off</a>
+        </div>
+    </div>
+
+    <a href="#" class="button tiny" cmd="fit-all">FitAll</a>
+
+    <a href="#" class="button tiny" cmd="deselect-all">Deselect All</a>
+</script>
+
+<script id="loaded-template" type="text/template">
+    <h6 class="subheader">Loaded Models</h6>
+    <ul class="circle"></ul>
+    <button class="button tiny js-clear">Unload all</button>
+</script>
+
+<script id="table-row-template" type="text/template">
+    <td><%= multipartId %></td>
+    <td><%= partId %></td>
+</script>
+
+<script id="lights-settings" type="text/template">
+    <a href="#lights-settings-panel">Light settings</a>
+    <div id="lights-settings-panel" class="content">
+        <ul class="no-bullet">
+            <li>
+                <div class="row">
+                    <div class="small-4 columns oneline">
+                        <label>Point Light</label>
+                        <input type="checkbox" id="point">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Intensity</label>
+                        <input class="light-settings" type="number" id="point-intensity" step="0.01" max="1" min="0">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Radius</label>
+                        <input class="light-settings" type="number" id="point-radius" step="0.1">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h6>Color</h6>
+                    <div class="small-4 columns">
+                        <label>R:</label> <input class="color light-settings" type="number" id="Red" max="1" min="0" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>G:</label> <input class="color light-settings" type="number" id="Green" max="1" min="0" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>B:</label> <input class="color light-settings" type="number" id="Blue" max="1" min="0" step="0.1">
+                    </div>
+                </div>
+                <div class="row">
+                    <h6>Location</h6>
+                    <div class="small-4 columns">
+                        <label>X:</label> <input class="coords-point light-settings" id="point-X" type="number" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Y:</label> <input class="coords-point light-settings" id="point-Y" type="number" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Z:</label> <input class="coords-point light-settings" id="point-Z" type="number" step="0.1">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row">
+                    <input type="checkbox" id="spot">
+                    <label>Spot lights</label><br>
+                    <h6>Location</h6>
+                    <div class="small-4 columns">
+                        <label>X:</label><input class="spot-coords light-settings" type="number" id="spot-X" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Y:</label><input class="spot-coords light-settings" type="number" id="spot-Y" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Z:</label><input class="spot-coords light-settings" type="number" id="spot-Z" step="0.1">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-4 columns">
+                        <label>Radius:</label>
+                        <input class="light-settings" type="number" id="spot-radius" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Cut Off Angle</label>
+                        <input class="light-settings" type="number" id="spot-cut-angle" step="0.1" max="1.7">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Beam width</label>
+                        <input class="light-settings" type="number" id="spot-beamWidth" step="0.1" max="1.7">
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <input type="checkbox" id="directional">
+                <label for="directional">Directional light</label>
+                <div class="row">
+                    <h6>Color</h6>
+                    <div class="small-4 columns">
+                        <label>R:</label> <input class="color-direct light-settings" type="number" id="Red" max="1" min="0" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>G:</label> <input class="color-direct light-settings" type="number" id="Green" max="1" min="0" step="0.1">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>B:</label> <input class="color-direct light-settings" type="number" id="Blue" max="1" min="0" step="0.1">
+                    </div>
+                </div>
+                <div class="row">
+                    <h6>Direction</h6>
+                    <div class="small-4 columns">
+                        <label>X:</label> <input type="number" class="direction light-settings" id="X">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Y:</label> <input type="number" class="direction light-settings" id="Y">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Z:</label> <input type="number" class="direction light-settings" id="Z">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-4 columns">
+                        <label>Ambientintensity:</label> <input type="number" id="ambientintensity" class="light-settings" step="0.01">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Intensity:</label> <input type="number" id="intensity" step="0.01" class="light-settings" max="1" min="0">
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Shadow intensity:</label>
+                        <input type="number" min="0" max="1" step="0.01" id="shadow-intensity" class="light-settings">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="headlight">
+                <label for="headlight">Head light</label>
+            </li>
+            <li>
+                <h6>Gamma correction</h6>
+                <select name="gamma-corrections" id="gamma-correction-selection">
+                    <option value="none">None</option>
+                    <option value="linear">Linear</option>
+                    <option value="fastLinear">Fast linear</option>
+                </select>
+
+            </li>
+        </ul>
+
+    </div>
+</script>
+<!--<script id="partId-row" type="text/template">
+    <td id="partID"><%= partId %></td>
+</script>-->
+<script id="color-settings" type="text/template">
+    <a href="#color-settings-panel">Color settings</a>
+    <div id="color-settings-panel" class="content">
+        <table id="part-id-table">
+            <thead>
+            <tr>
+                <th>Part Id</th>
+            </tr>
+            </thead>
+            <tbody id="partId-table">
+            <tr>
+                <td id="partID"><%= partId %></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="small-3 columns">
+                <label class="input-label">R:</label>
+                <input class="input-control colors" id="red" type="number" step="1" min="0" max="255">
+            </div>
+            <div class="small-3 columns">
+                <label class="input-label">G:</label>
+                <input class="input-control colors" type="number" step="1" id="green" min="0" max="255">
+            </div>
+            <div class="small-3 columns">
+                <label class="input-label">B:</label>
+                <input class="input-control colors" type="number" step="1" id="blue" min="0" max="255">
+            </div>
+            <div class="small-3 columns">
+                <a href="#" id="set-color" class="set button tiny info">Set colors</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-3 columns">
+                <a href="#" id="get-diffuse-color" class="set button tiny info">Get diffuse</a>
+            </div>
+            <div class="small-3 columns">
+                <ul>
+                    <li id="dif-r">r:</li>
+                    <li id="dif-g">g:</li>
+                    <li id="dif-b">b:</li>
+                </ul>
+            </div>
+            <div class="small-4 columns">
+                <label class="input-label">R:</label>
+                <input class="input-control colors" id="dif-red" type="number" step="1" min="0" max="255">
+                <label class="input-label">G:</label>
+                <input class="input-control colors" id="dif-green" type="number" step="1" min="0" max="255">
+                <label class="input-label">B:</label>
+                <input class="input-control colors" id="dif-blue" type="number" step="1" min="0" max="255">
+            </div>
+            <div class="small-2 columns">
+                <a href="#" id="set-diffuse-color" class="set button tiny info">Set diffuse</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <a href="#" id="get-emissive-color" class="set button tiny info">Get emissive</a>
+            </div>
+            <div class="small-3 columns">
+                <ul>
+                    <li id="emis-r">r:</li>
+                    <li id="emis-g">g:</li>
+                    <li id="emis-b">b:</li>
+                </ul>
+            </div>
+            <div class="small-4 columns">
+                <label class="input-label">R:</label>
+                <input class="input-control colors emis" id="emis-red" type="number" step="1" min="0" max="255">
+                <label class="input-label">G:</label>
+                <input class="input-control colors emis" id="emis-green" type="number" step="1" min="0" max="255">
+                <label class="input-label">B:</label>
+                <input class="input-control colors emis" id="emis-blue" type="number" step="1" min="0" max="255">
+            </div>
+            <div class="small-2 columns">
+                <a href="#" id="set-emissive-color" class="set button tiny info">Set emissive</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <a href="#" id="get-specular-color" class="set button tiny info">Get specular</a>
+            </div>
+            <div class="small-3 columns">
+                <ul>
+                    <li id="spec-r">r:</li>
+                    <li id="spec-g">g:</li>
+                    <li id="spec-b">b:</li>
+                </ul>
+            </div>
+            <div class="small-4 columns">
+                <label class="input-label">R:</label>
+                <input class="input-control colors spec" id="spec-red" type="number" step="1" min="0" max="255">
+                <label class="input-label">G:</label>
+                <input class="input-control colors spec" id="spec-green" type="number" step="1" min="0" max="255">
+                <label class="input-label">B:</label>
+                <input class="input-control colors spec" id="spec-blue" type="number" step="1" min="0" max="255">
+            </div>
+            <div class="small-2 columns">
+                <a href="#" id="set-specular-color" class="set button tiny info">Set specular</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <a href="#" id="get-transparency" class="set button tiny info">Get transparency</a>
+            </div>
+            <div class="small-3 columns">
+                <ul>
+                    <li id="transparency">transp:</li>
+                </ul>
+            </div>
+            <div class="small-4 columns">
+                <label class="input-label">Tr:</label>
+                <input type="number" class="input-control colors trans" step="0.01" min="0" max="1">
+            </div>
+            <div class="small-2 columns">
+                <a href="#" id="set-transparency" class="set button tiny info">Set transparency</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-3 columns">
+                <a href="#" id="reset-color" class="set button tiny info">Reset Color</a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="types-table-container" type="text/tamplate">
+    <a href="#material-settings-panel">Material settings</a>
+    <div id="material-settings-panel" class="content">
+        <div class="row"  id="type-set-color">
+            <div class="small-3 columns">
+                <label class="input-label">R:</label>
+                <input class="input-control colors types" id="red" type="number" step="1" min="0" max="255">
+            </div>
+            <div class="small-3 columns">
+                <label class="input-label">G:</label>
+                <input class="input-control colors types" id="green" type="number" step="1" min="0" max="255">
+            </div>
+            <div class="small-3 columns">
+                <label class="input-label">B:</label>
+                <input class="input-control colors types" id="blue" type="number" step="1" min="0" max="255">
+            </div>
+            <div class="small-3 columns">
+                <a href="#" id="set-type-color" class=" set button tiny info  types">Set color</a>
+            </div>
+        </div>
+        <div id="table-container"></div>
+    </div>
+</script>
+<script id="types-table" type="text/template">
+    <thead>
+    <tr>
+        <th><%= modelIds %></th>
+    </tr>
+    </thead>
+    <tbody id="type-list"></tbody>
+</script>
+<script id="type-node-template" type="text/template">
+    <td class="type-table-node">
+        <a href="#" id="<%= ifcType %>"><%= ifcType %>(<%= count %>)</a>
+    </td>
+</script>
+
+<script id='update-notification' type='text/template'>
+    <div id="notification-modal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <p id="msg"></p>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+</script>
+
+<script id='modeltree-layout' type='text/template'>
+    <div class="scroll-container">
+        <h6 class="subheader">Structure Tree</h6>
+        <div id="modeltree-toolbar-region"></div>
+        <div id="modeltree-list-region"></div>
+    </div>
+</script>
+
+<script id='modeltree-item-controls' type="text/template">
+    <% if(isNode) { %>
+    <i class="icon icon-folder"></i>
+    <% } %>
+    <% if(hasGeometry) { %>
+    <i class="icon icon-codepen" title="Geometry"></i>
+    <% } %>
+    <span role="select-element">
+        <i class="icon icon-check-off"></i>
+    </span>
+    <span class="element-name <% if(isNode) { %>strong<% } %>" role="element-name" title="<%- id.split('@')[0] %>">
+        <%- name %>
+    </span>
+    <span role="hide-element">
+        <i class="icon icon-eye-on"></i>
+    </span>
+    <div class="clearfix"></div>
+</script>
+
+<script id="table-item-view" type="text/template">
+    <%- name %> <span class="id-container">(<%- id.split('@')[0] %>)</span> <span class="remove"><i class="icon-cross"></i></span>
+</script>
+
+<script id='modeltree-item' type='text/template'>
+    <div class="item-controls"></div>
+    <div class="item-children"></div>
+</script>

@@ -1,0 +1,4 @@
+/.idea/
+/node_modules/
+git.log
+client/src/config.js

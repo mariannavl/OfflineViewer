@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viewer</title>
+
+    <link rel="stylesheet" href="src/vendor/x3dom-11.2016/x3dom.css" >
+    <link rel="stylesheet" href="bower_components/foundation/css/normalize.css" >
+    <link rel="stylesheet" href="bower_components/foundation/css/foundation.css" >
+    <link rel="stylesheet" href="css/viewer.css" >
+    <link rel="stylesheet" href="css/icomoon/style.css">
+</head>
+<body>
+
+<div class="row">
+    <div class="large-12 columns">
+        <h1>tpViewer! <small>Offline version</small></h1>
+        <hr/>
+    </div>
+</div>
+<div class="row js-buttons-row" style="text-align:center;">
+    <div class="left">
+        <button class="button tiny menu-toggle" data-target="#models-menu">Models menu</button>
+        <button class="button tiny menu-toggle" data-target="#modeltree-container">Structure Tree</button>
+    </div>
+
+    <button class="button tiny right menu-toggle" data-target="#options">Options</button>
+
+    <span class="hide-show">
+    </span>
+
+</div>
+<div class="row">
+
+    <aside id="models-menu" class="large-2 columns hide" data-width="2">
+        <div id="models-list"></div><hr>
+        <div id="models-upload"></div><hr>
+        <div id="models-loaded"></div>
+    </aside>
+
+    <aside id="modeltree-container" class="large-2 columns hide" data-width="2"></aside>
+    <div class="large-12 columns has-tip" role="contentinfo" data-width="12" >
+        <div id="viewer" data-tooltip>
+            <!--<div id="rectangle-selection-container"></div>-->
+        </div>
+        <div id="cube"></div>
+    </div>
+
+    <aside id="options" class="large-3 columns hide" data-width="3">
+        <dl id="options-menu" class="accordion" data-accordion>
+            <div id="navigation-menu"></div>
+            <div id="navigation-options"></div>
+            <div id="render-mode"></div>
+            <div class="accordion-navigation">
+                <a href="#selected-objects-container">Selected objects</a>
+                <div id="selected-objects-container" class="content"></div>
+            </div>
+            <div class="accordion-navigation">
+                <a href="#hidden-objects-container">Hidden objects</a>
+                <div id="hidden-objects-container" class="content"></div>
+            </div>
+            <div id="light-settings-container"></div>
+            <div id="color-settings-container"></div>
+            <div id="material-settings-container"></div>
+        </dl>
+    </aside>
+</div>
+
+<footer class="row">
+    <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+            <div class="large-6 columns">
+                <p>&copy; Copyright no one at all. Go to town.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="modal-region"></div>
+
+<%= templates %>
+<%= scripts %>
+<% if(withCube) { %>
+<script src="./src/cube/controllers/cube_controller.js"></script>
+<script src="./src/cube/views/cube.js"></script>
+<% } %>
+
+<script>
+    $(document).foundation();
+    Viewer.start();
+</script>
+
+</body>
+</html>
