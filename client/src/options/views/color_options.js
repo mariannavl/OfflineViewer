@@ -1,13 +1,6 @@
 "use strict";
 
 Viewer.module("ColorOptions", function(ColorOptions, Viewer, Backbone, Marionette, $, _){
-    var colorModel = new Backbone.Model({
-        specular: "0,0,0",
-        diffuse: "1,0,0",
-        emissive: "1,1,1",
-        transparency: 0,
-        parts: null
-    });
 
     ColorOptions.ColorOptionsView = Marionette.LayoutView.extend({
         id: "lights-menu",
@@ -53,7 +46,6 @@ Viewer.module("ColorOptions", function(ColorOptions, Viewer, Backbone, Marionett
 
 	ColorOptions.ColorOptionsFromView = Marionette.ItemView.extend({
         template: "#color-form-tpl",
-        model: colorModel,
         events: {
 		    'input #diffuse-control': 'setDiffusive',
 		    'input #emissive-control': 'setEmissive',
@@ -63,6 +55,14 @@ Viewer.module("ColorOptions", function(ColorOptions, Viewer, Backbone, Marionett
             'click #reset-color': 'resetColor'
         },
         initialize: function() {
+            this.model = new Backbone.Model({
+                specular: "0,0,0",
+                diffuse: "1,0,0",
+                emissive: "1,1,1",
+                transparency: 0,
+                parts: null
+            });
+
             this.screenController = Viewer.Screen.Controllers.instance;
             this.selectionCollection = Viewer.ModelTree.elementSelection;
             this.modeltreeElementsCollection = Viewer.ModelTree.modeltreeElementsCollection;

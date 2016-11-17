@@ -532,7 +532,7 @@ Viewer.module("Screen.Views", function (Views, Viewer, Backbone, Marionette, $, 
                 diffuse: parts.getDiffuseColor().toGL().join(','),
                 specular: parts.getSpecularColor().toGL().join(','),
                 emissive: parts.getEmissiveColor().toGL().join(','),
-                transparancy: parts.getTransparency()
+                transparency: parts.getTransparency()
             };
         },
         resetColor: function () {
