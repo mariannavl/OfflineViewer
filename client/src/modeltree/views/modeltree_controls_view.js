@@ -50,7 +50,7 @@ Viewer.module("ModelTree", function(ModelTree, Viewer, Backbone, Mn, $, _) {
             return _.extend(this.model.toJSON(), {
                 isNode: isNode(elementId),
                 hasGeometry: hasGeometry(elementId)
-            })
+            });
         },
         onRender: function() {
             this.$el.css({

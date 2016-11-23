@@ -12,7 +12,9 @@ Viewer.module("Navigation", function (Navigation, Viewer, Backbone, Marionette, 
 
       var navigation = $(e.target);
 
-      $(".nav-type").removeClass("highlight");
+      navigation.parents('ul')
+                .find(".nav-type")
+                .removeClass("highlight");
       navigation.addClass("highlight");
 
       Viewer.trigger("viewer:changeNav", navigation.data("type"));

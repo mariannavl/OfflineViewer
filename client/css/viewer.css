@@ -8,7 +8,7 @@
 }
 
 a.open-model {
-    width: 80%;
+    width: 60%;
     text-overflow: ellipsis;
     white-space: nowrap;
     float: left;
@@ -21,7 +21,6 @@ a.open-model {
 
 #models-list a.log-file {
     background: #65bb9c;
-    margin: 0 6px;
     width: 20px;
     height: 20px;
     color: #fff;
@@ -31,6 +30,10 @@ a.open-model {
     line-height: 22px;
     position: relative;
     top:2px;
+}
+
+.in-middle {
+    margin: 0 3px;
 }
 
 .muted {
@@ -64,11 +67,20 @@ x3d {
     min-width: 100% !important;
     padding: 0 15px;
 }
+.row.no-pad {
+    padding: 0;
+}
+.button.js-reset {
+    margin-bottom: 0;
+}
+.nav-type {
+    padding: 3px 7px;
+    transition: .3s all;
+}
 
 .highlight {
-    background: rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
+    background: #bb6565;
+    color:#fff !important;
 }
 
 #models-menu {
@@ -85,16 +97,18 @@ x3d {
 
 .accordion-navigation > a {
     background: #008CBA !important;
-    border: 1px solid #007095;
     color: #f7f7f7 !important;
     font-size: 15px !important;
-    height: 30px !important;
     padding: 5px 10px !important;
+    border-bottom: 1px solid #2a9dc3;
 }
 
 .accordion-navigation > .content {
     background: #f7f7f7 !important;
-    border: 1px solid #898989;
+    box-shadow: 0 4px 9px #e4e4e4 inset;
+}
+.content ul:last-child {
+    margin-bottom: 0;
 }
 
 span.round.label {
@@ -105,7 +119,7 @@ span.round.label {
 }
 
 .js-buttons-row {
-    padding: 0 30px;
+    padding: 0 15px;
 }
 
 .no-margin {
@@ -178,8 +192,27 @@ h6 {
 }
 
 /* ModelTree styling */
-.item-controls, .item-controls ul {
+.elements-count, .item-controls, .item-controls ul {
     line-height: 1.1;
+}
+
+.elements-count {
+    float: left;
+}
+.counter {
+    padding: 3px 5px;
+    font-weight: 600;
+    font-size: 11px;
+    color: #fff;
+    background: #65bb9c;
+    border-radius: 8px;
+    position: relative;
+    top: 3px;
+}
+
+.element-controls {
+    white-space: nowrap;
+    float: left;
 }
 
 .element-name {
@@ -194,9 +227,7 @@ h6 {
     font-weight: 600;
     color: #008CBA;
 }
-.element-controls {
-    white-space: nowrap;
-}
+
 .element-controls span{
     height: 24px;
     line-height: 24px;
@@ -258,11 +289,6 @@ h6 {
     transition: .3s all;
     border-radius: 3px;
     border-bottom: 2px solid #f7f7f7;
-}
-
-.list-item:hover {
-    border-bottom-color: #ddd;
-    background: #fefefe;
 }
 
 .remove {

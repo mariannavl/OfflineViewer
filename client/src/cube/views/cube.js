@@ -16,7 +16,7 @@ Viewer.module('Cube', function(Cube, Viewer, Backbone, Mn, $, _) {
            x3dom.reload();
            var $viewer = $('#x3dElement');
 
-           this.$el.parent().css({
+           this.$el.parent().show().css({
                marginTop: '-200px'
            });
 

@@ -4,7 +4,8 @@ Viewer.module("ModelTree", function(ModelTree, Viewer, Backbone, Mn, $, _) {
         template: '#modeltree-item',
         regions: {
             'controlsRegion': '.item-controls',
-            'childrenRegion': '.item-children'
+            'childrenRegion': '.item-children',
+            'count': '.elements-count'
         },
         ui: {
             'controls': '.item-controls',
@@ -18,6 +19,10 @@ Viewer.module("ModelTree", function(ModelTree, Viewer, Backbone, Mn, $, _) {
             this.controlsRegion.show(new ModelTree.ModelTreeControlsView(options));
 
             this.listenTo(ModelTree.expandedElementsCollection, 'add remove reset', this.showChildrenList);
+
+            if(isRoot(this.model.id)) {
+                this.listenTo(ModelTree.partialModelChildrenCount, 'change', this.showChildrensCount);
+            }
 
             this.showChildrenList();
         },
@@ -34,6 +39,9 @@ Viewer.module("ModelTree", function(ModelTree, Viewer, Backbone, Mn, $, _) {
                 this.listenTo(ModelTree.expandedElementsCollection, 'add remove reset', this.toggleChildrenList);
             }
         },
+        showChildrensCount: function() {
+            this.count.show( new ModelTree.ModelTreeCountView({model: this.model}) );
+        },
         toggleChildrenList: function() {
             var expandedModel = ModelTree.expandedElementsCollection.get(this.model.id);
             if(!!expandedModel) {
@@ -49,4 +57,8 @@ Viewer.module("ModelTree", function(ModelTree, Viewer, Backbone, Mn, $, _) {
             };
         }
     });
+
+    function isRoot(elementId) {
+        return !!ModelTree.partialModelsCollection.get(elementId);
+    }
 });

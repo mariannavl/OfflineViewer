@@ -15,7 +15,9 @@ Viewer.module("RenderMode", function(RenderMode, Viewer, Backbone, Marionette, $
 
            var renderMode = $(e.target);
 
-           $(".nav-type").removeClass("highlight");
+           renderMode.parents('ul')
+                        .find(".nav-type")
+                        .removeClass("highlight");
            renderMode.addClass("highlight");
 
            Viewer.trigger("viewer:changeRenderMode", renderMode.data("type"));

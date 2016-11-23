@@ -1,19 +1,8 @@
-var config = require('./config');
 var _ = require('underscore');
 
 var
     http = require('http'),
-    https = require('https'),
     fs = require('fs-extra');
-
-var
-    privateKey = fs.readFileSync('./cert/private/server.key'),
-    certificate = fs.readFileSync('./cert/certs/server.crt');
-
-var creditentials = {
-    key: privateKey,
-    cert: certificate
-};
 
 var public_folder = '../client';
 
@@ -159,12 +148,5 @@ app.post('/deleteModel/:name', function(req, res) {
     });
 });
 
-if (config.http) {
-    var httpServer = http.createServer(app);
-    httpServer.listen(config.httpPort);
-}
-
-if (config.https) {
-    var httpsServer = https.createServer(creditentials, app);
-    httpsServer.listen(config.httpsPort);
-}
+var httpServer = http.createServer(app);
+httpServer.listen(3000);
