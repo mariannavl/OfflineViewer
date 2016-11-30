@@ -7,6 +7,11 @@ Viewer.module("ObjecTables", function(ObjecTables, Viewer, Mn, $, _) {
         },
         initialize: function() {
             this.collection = Viewer.ModelTree.elementVisibility;
+
+            this.listenTo(Viewer, 'unload:all', this.resetCollection);
+        },
+        resetCollection: function() {
+            this.collection.reset();
         }
     });
 });

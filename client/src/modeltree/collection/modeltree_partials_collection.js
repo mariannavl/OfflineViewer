@@ -3,6 +3,7 @@ Viewer.module('ModelTree', function(ModelTree, Viewer, Backbone) {
         initialize: function() {
             this.listenTo(Viewer, 'load:model', this.addModel);
             this.listenTo(Viewer, 'unload:model', this.removeModel);
+            this.listenTo(Viewer, 'unload:all', this.removeAllModels);
         },
         addModel: function(modelName) {
             this.add({
@@ -14,6 +15,9 @@ Viewer.module('ModelTree', function(ModelTree, Viewer, Backbone) {
         },
         removeModel: function(modelName) {
             this.remove(modelName + '@' + modelName);
+        },
+        removeAllModels: function() {
+            this.reset();
         }
     });
 

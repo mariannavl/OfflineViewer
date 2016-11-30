@@ -45,7 +45,7 @@ Viewer.module("Screen.Views", function (Views, Viewer, Backbone, Marionette, $, 
             this.listenTo(Viewer.vent, 'screen:parts:hide', this.hideParts);
             this.listenTo(Viewer.vent, 'screen:parts:show', this.showParts);
 
-            // this.listenTo(Viewer, "set:parts:color", this.setPartsColor);
+            this.listenTo(Viewer, "set:parts:color", this.setPartsColor);
 
             x3dom.reload();
         },
