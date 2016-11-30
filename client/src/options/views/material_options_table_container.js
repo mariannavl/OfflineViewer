@@ -23,6 +23,7 @@ Viewer.module("MaterialOptions", function(MaterialOptions, Viewer, Backbone, Mar
 		onShow: function(){
 			this.listenTo(Viewer, "unload:model", this.clearTable);
 			this.listenTo(Viewer, "show:material:types", this.showTypes);
+			this.listenTo(Viewer, "unload:all", this.clearAll);
 		},
 		
 		showTypes: function(elementsObj){
@@ -139,6 +140,10 @@ Viewer.module("MaterialOptions", function(MaterialOptions, Viewer, Backbone, Mar
 			// var self = this;
 			var model = this.collection.findWhere({modelIds: modelName});
 			this.collection.remove(model);
-		}
+		},
+
+        clearAll: function(){
+		    this.collection.reset();
+        }
 	});
 });
