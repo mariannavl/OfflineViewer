@@ -310,13 +310,15 @@ Viewer.module("Screen.Views", function (Views, Viewer, Backbone, Marionette, $, 
         },
 
         changeMultiPartTransparency: function (visible) {
-            this.changePartTransparency(this.multipart, visible);
-            this.isMultipartTransparent = visible;
+            //this.changePartTransparency(this.multipart, visible);
+            //this.isMultipartTransparent = visible;
+            this.multipart.setAttribute('render', !visible);
         },
 
         changeWireframeTransparency: function (visible) {
-            this.changePartTransparency(this.wireframe, visible);
-            this.isWireframeTransparent = visible;
+            //this.changePartTransparency(this.wireframe, visible);
+            //this.isWireframeTransparent = visible;
+            this.wireframe.setAttribute('render', !visible);
         },
 
         changePartTransparency: function (part, isTransparent) {
